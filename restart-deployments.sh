@@ -6,6 +6,7 @@ TIMEOUT="300s"  #max wait per Deployment
 #format: namespace/deployment
 Targets=(
 team-a/web-a
+team-c/broken
 team-b/web-b
 )
 
@@ -14,7 +15,7 @@ FAILED=()
 
 for item in "${Targets[@]}";do
   ns="${item%%/*}"                  #everything before the first /
-  deployment ="${item##*/}"         #everything after the last /
+  deployment="${item##*/}"         #everything after the last /
 
   echo "=== Restarting $deployment in namesapce $ns==="
 
